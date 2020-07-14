@@ -2,37 +2,43 @@ package com.github.jasonalpha.alpha.alpha;
 
 import com.github.jasonalpha.alpha.EventHandler;
 import com.github.jasonalpha.alpha.FMLPreInitializationEvent;
-import com.github.jasonalpha.alpha.FMLTutor;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import gregtech.api.GTValues;
+import gregtech.api.util.GTLog;
+import gregtech.common.blocks.VariantItemBlock;
+@Mod(
+        modid = alpha.MODID,
+        name = "Alpha",
+        acceptedMinecraftVersions = "1.12.2",
+        dependencies = "required:forge@[14.23.5.2847,);" + "required:gregtech")
 
-@Mod(modid = Alpha.alpha, version = alpha.0.0.1, name = FMLTutor.NAME, version = FMLTutor.VERSION, acceptedMinecraftVersions = "1.12.2", dependencies = "required-after:gregtech"))
 public class alpha
 {
     public static final String MODID = "alpha";
     public static final String VERSION = "0.0.1";
 
     @EventHandler
-    public void init(FMLInitializationEvent event)
+    public static void init(FMLInitializationEvent event)
     {
-		//
+
         System.out.println("DIRT BLOCK >> "+Blocks.dirt.func_149730_j());
     }
 }
-    @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
+    @EventHandler
+    public static void onPreInit(FMLPreInitializationEvent event) {
 
     }
 
-    @Mod.EventHandler
-    public void init(FMLInitializationEvent event) {
+    @EventHandler
+    public static void onInit(FMLInitializationEvent event) {
 
     }
 
-    @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent event) {
+    @EventHandler
+    public static void onPostInit(FMLPostInitializationEvent event) {
 
     }
 
@@ -44,19 +50,19 @@ public class alpha
 public static CommonProxy proxy;
 
 @Mod.EventHandler
-public void preInit(FMLPreInitializationEvent event)
+public static void onPreInit(FMLPreInitializationEvent event)
         {
-        proxy.preInit(event);
+         proxy.onPreInit(event);
         }
 
-@EventHandler
-public void init(FMLInitializationEvent event)
+@Mod.EventHandler
+public static void onInit(FMLInitializationEvent event)
         {
-        proxy.init(event);
+        proxy.onInit(event);
         }
 
-@EventHandler
-public void postInit(FMLPostInitializationEvent event)
+@Mod.EventHandler
+public static void onPostInit(FMLPostInitializationEvent event)
         {
-        proxy.postInit(event);
+        proxy.onPostInit(event);
         }
