@@ -4,7 +4,6 @@ import com.github.jasonalpha.alpha.EventHandler;
 import com.github.jasonalpha.alpha.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 
 @Mod(
@@ -50,23 +49,23 @@ System.out.println("onPostInit"+ FMLPostInitializationEvent);
 
     @SidedProxy(clientSide = "com.github.jasonalpha.alpha.proxy.ClientProxy",
            serverSide = "com.github.jasonalpha.alpha.proxy.CommonProxy")
-  public static CommonProxy proxy;}
+  public static com.githb.jasonalpha.alpha.proxy.commonproxy.CommonProxy proxy;}
 
-public class  CommonProxy <proxy> {
 
 
     public void onPreInit(FMLPreInitializationEvent event)
       {
- System.out.println("proxy" + onPreInit(event));
+ System.out.println("proxy" + onPreInit(event));}
 
-        }
+
 
 @EventHandler
 public void onInit(FMLInitializationEvent event)
-        {
-        proxy.onInit(event);
-        }
+
+{proxy.onInit(event);}
+
 
 @EventHandler
 public void onPostInit(FMLPostInitializationEvent event)
         {proxy.onPostInit(event);}}
+
